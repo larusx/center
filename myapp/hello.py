@@ -12,7 +12,7 @@ def hello():
 	for root,dirs,files in os.walk(UPLOAD_FOLDER):
 		for fn in files:
 			return_list.append(fn)
-	return render_template('a.html',return_list=return_list)
+	return render_template('a.html',return_list=return_list.sort())
 
 @app.route('/upload',methods=['GET','POST'])
 def upload_file():
