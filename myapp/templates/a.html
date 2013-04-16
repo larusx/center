@@ -19,7 +19,7 @@
     
  
 <center>
-<form enctype="multipart/form-data" action="/storage" method="POST">  
+<form enctype="multipart/form-data" action="/upload" method="POST">  
 <div >
 上传文件:
 <input type="file" name="file1" >  
@@ -32,8 +32,8 @@
 
 
 <table class="table table-bordered table-hover" id='occur'>
-{%for k,v in meta%}
-<tr><td>{{k}}</td><td>{{v}}</td></tr>
+{%for value in return_list%}
+<tr><td><a href="http://larusx.jupiter.cloudlut.net/upload/{{value}}"></a>{{value}}</td></tr>
 {%endfor%}
 </table>
 <script>
