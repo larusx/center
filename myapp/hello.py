@@ -5,7 +5,9 @@ app = Flask(__name__)
 @app.route('/') 
 def hello(): 
 	return render_template('a.html')
-
+@app.route('/hello')
+def hel():
+	return 'hello'
 @app.route('/storage',methods=['GET','POST'])
 def upload_file():
 	if request.method== 'POST':
