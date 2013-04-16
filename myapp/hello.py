@@ -18,7 +18,7 @@ def hello():
 def upload_file():
 	if request.method == 'POST':
 		f = request.files['file1']
-		f.save(UPLOAD_FOLDER+secure_filename(f.filename))
+		f.save('usr/upload'+secure_filename(f.filename))
 	return 'OK'
 
 @app.route('/upload/<filename>')
