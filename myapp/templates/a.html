@@ -27,15 +27,19 @@
 </div>
 </form>  
 <script type="text/javascript">document.write(Date());</script>
+<button class='btn btn-primary' onclick="func()">隐藏文件</button>
 </center>
 
 
-
+<div class='container'>
 <table class="table table-bordered table-hover" id='occur'>
+<tbody>
 {%for value in return_list%}
 <tr><td><a href="http://larusx.jupiter.cloudlut.net/upload/{{value}}">{{value}}</a></td></tr>
 {%endfor%}
+</tbody>
 </table>
+</div>
 <script>
 function func()
 {
@@ -48,7 +52,7 @@ function func()
 	}
 }
 </script>
-<button class='btn btn-primary' onclick="func()">echo information</button>
+
 <center>
 <a href="http://posix.sinaapp.com/?p=246">建议，意见，留言板@larus</a>
 </center>
