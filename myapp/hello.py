@@ -22,7 +22,7 @@ def upload_file():
 	return 'OK'
 
 @app.route('/upload/<filename>')
-def uploaded_file():
+def uploaded_file(filename):
 	return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
 
 if __name__ == '__main__': 
