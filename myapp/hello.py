@@ -1,9 +1,5 @@
 import os
-<<<<<<< HEAD
-from flask import Flask,render_template,request,send_from_directory,url_for,redirect
-=======
 from flask import Flask,render_template,request,send_from_directory,redirect,url_for,flash
->>>>>>> 55467ae78c1e4031d6b3a52290135268fbc1e404
 from werkzeug import secure_filename
 app = Flask(__name__) 
 app.secret_key=os.urandom(24)
