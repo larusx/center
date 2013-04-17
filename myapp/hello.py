@@ -20,7 +20,7 @@ def upload_file():
 		f = request.files['file1']
 		f.save(UPLOAD_FOLDER+secure_filename(f.filename))
 	flash('OK')
-	restrict(url_for('hello'))
+	return redirect(url_for('hello'))
 
 @app.route('/upload/<filename>')
 def uploaded_file(filename):
