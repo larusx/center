@@ -1,5 +1,5 @@
 import os
-from flask import Flask,render_template,request,send_from_directory
+from flask import Flask,render_template,request,send_from_directory,url_for,redirect,flash
 from werkzeug import secure_filename
 app = Flask(__name__) 
 
@@ -19,7 +19,7 @@ def upload_file():
 	if request.method == 'POST':
 		f = request.files['file1']
 		f.save(UPLOAD_FOLDER+secure_filename(f.filename))
-	flash('OK')
+		flash('OK')
 	return redirect(url_for('hello'))
 
 @app.route('/upload/<filename>')
