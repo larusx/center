@@ -32,7 +32,16 @@
 <script type="text/javascript">document.write(Date());</script>
 </center>
 
-<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class='flashes'>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<!--<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>-->
 
 
 <div class='container'>
