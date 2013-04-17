@@ -1,5 +1,5 @@
 import os
-from flask import Flask,render_template,request,send_from_directory,url_for,redirect,flash
+from flask import Flask,render_template,request,send_from_directory,url_for,redirect
 from werkzeug import secure_filename
 app = Flask(__name__) 
 
