@@ -19,7 +19,8 @@ def upload_file():
 	if request.method == 'POST':
 		f = request.files['file1']
 		f.save(UPLOAD_FOLDER+secure_filename(f.filename))
-	return 'OK'
+	flash('OK')
+	restrict(url_for('hello'))
 
 @app.route('/upload/<filename>')
 def uploaded_file(filename):
