@@ -28,9 +28,9 @@ def uploaded_file(filename):
 
 @app.route('/search',methods=['POST','GET'])
 def search_result():
+    return_list=[] 
     if request.method == 'POST':
         search_content=request.form['search_content'].encode('utf-8')
-        return_list=[] 
         for root,dirs,files in os.walk(UPLOAD_FOLDER):
             for fn in files:
                 if re.search(search_content,fn,re.IGNORECASE):
