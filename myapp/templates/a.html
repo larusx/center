@@ -10,12 +10,13 @@
 <script src="static/js/jquery.iframe-transport.js"></script>
 <script src="static/js/jquery.fileupload.js"></script>
 <script type="text/javascript">
+
 function validate_required(field,alerttxt)
 {
 with (field)
   {
   if (value==null||value=="")
-    {alert(alerttxt);return false}
+    {document.getElementById("nofile").innerHTML="no file chosen!";return false}
   else {return true}
   }
 }
@@ -50,6 +51,9 @@ with (thisform)
 </form>  
 </div>
 </div>
+<center>
+<h2 id='nofile'></h2>
+</center>
 <div class="row">
 {{status|safe}}
 </div>
