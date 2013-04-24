@@ -9,18 +9,19 @@ app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
 app.debug=True
 @app.route('/')
 def hello():
-    return_list=[]
-    for root,dirs,files in os.walk(UPLOAD_FOLDER):
-        for fn in files:
-            return_list.append(fn.decode('utf-8'))
-    return render_template('a.html',return_list=return_list)
+    #return_list=[]
+    #for root,dirs,files in os.walk(UPLOAD_FOLDER):
+    #    for fn in files:
+    #        return_list.append(fn.decode('utf-8'))
+    #return render_template('a.html',return_list=return_list)
+    return render_template('index.html')
 
 @app.route('/upload',methods=['GET','POST'])
 def upload_file():
     if request.method == 'POST':
         f = request.files['file1']
         f.save(UPLOAD_FOLDER+f.filename.encode('utf-8'))
-    return redirect(url_for('hello'))
+    return redirect(url_for('search_result'))
 @app.route('/upload/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
