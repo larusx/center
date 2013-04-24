@@ -28,11 +28,11 @@ def uploaded_file(filename):
 @app.route('/search',methods=['POST'])
 def search_result():
     if request.method == 'POST':
-        search_content=re.compile(request.form['search_content'].encode('utf-8'))
+        search_content=request.form['search_content'].encode('utf-8')
         return_list=[] 
         for root,dirs,files in os.walk(UPLOAD_FOLDER):
             for fn in files:
-                if search_content.search(fn):
+                if re.search(search_content,fn,re.IGNORECASE):
                     return_list.append(fn.decode('utf-8'))
     return render_template('a.html',return_list=return_list)
 if __name__ == '__main__': 
