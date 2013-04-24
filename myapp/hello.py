@@ -9,7 +9,7 @@ app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
 app.debug=True
 @app.route('/')
 def hello():
-    return_list=[] 
+    return_list=[]
     for root,dirs,files in os.walk(UPLOAD_FOLDER):
         for fn in files:
             return_list.append(fn.decode('utf-8'))
