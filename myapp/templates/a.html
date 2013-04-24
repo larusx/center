@@ -31,6 +31,10 @@
 </form>  
 <script type="text/javascript">document.write(Date());</script>
 </center>
+<form class="form-search" action='/search' method='POST'>
+  <input type="text" class="input-medium search-query">
+  <button type="submit" class="btn">Search</button>
+</form>
 
 {% with messages = get_flashed_messages() %}
   {% if messages %}
@@ -69,7 +73,6 @@ function func()
 <center>
 <a href="http://posix.sinaapp.com/?p=246">建议，意见，留言板@larus</a>
 </center>
-
 </body>
 </html>
 
