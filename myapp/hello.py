@@ -21,7 +21,7 @@ def upload_file():
     if request.method == 'POST':
         f = request.files['file1']
         f.save(UPLOAD_FOLDER+f.filename.encode('utf-8'))
-    return redirect(url_for('search_result'))
+    return render_template('a.html',status='<div class="alert alert-success">上传成功！</div>')
 @app.route('/upload/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
