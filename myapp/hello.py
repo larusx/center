@@ -20,6 +20,8 @@ def hello():
 def upload_file():
     if request.method == 'POST':
         f = request.files['file1']
+	if os.path.exists(UPLOAD_FOLDER+f.filename.encode('utf-8')):
+    	    return render_template('a.html',status='''<div class="row"><div class="span4 offset6"><div class="alert alert-success">File exists!!!</div></div></div>''')
         f.save(UPLOAD_FOLDER+f.filename.encode('utf-8'))
     return render_template('a.html',status='''<div class="row"><div class="span4 offset6"><div class="alert alert-success">Upload Success!!!</div></div></div>''')
 @app.route('/upload/<filename>')
