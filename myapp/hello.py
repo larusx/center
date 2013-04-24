@@ -26,7 +26,7 @@ def upload_file():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
 
-@app.route('/search',methods=['POST'])
+@app.route('/search',methods=['POST','GET'])
 def search_result():
     if request.method == 'POST':
         search_content=request.form['search_content'].encode('utf-8')
