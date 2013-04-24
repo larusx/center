@@ -50,7 +50,9 @@ with (thisform)
 </form>  
 </div>
 </div>
-{{status}}
+<div class="row">
+{{status|safe}}
+</div>
 <center>
 <script type="text/javascript">document.write(Date());</script>
 </center>
@@ -72,10 +74,11 @@ with (thisform)
 {% endwith %}
 <!--<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>-->
 
-
+{%if return_list%}
 <div class='container'>
 <table class="table table-bordered table-hover" id='occur'>
 <tbody>
+{%endif%}
 {%for value in return_list%}
 <tr><td><a href="http://larusx.jupiter.cloudlut.net/upload/{{value}}">{{value}}</a></td></tr>
 {%endfor%}
