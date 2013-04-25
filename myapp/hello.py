@@ -20,14 +20,13 @@ def hello():
 def upload_file():
     if request.method == 'POST':
         flist = request.files
-	exist_list=[]
-	for f in flist.getlist('file1'):
-	    if os.path.exists(UPLOAD_FOLDER+f.filename.encode('utf-8')):
-		exist_list.append(f.filename.encode('utf-8'))
-    	        return render_template('a.html',status='''<div class="row"><div class="span4 offset6"><div class="alert alert-success">%s exists!!!</div></div></div>''' % f.filename)
-            f.save(UPLOAD_FOLDER+f.filename.encode('utf-8'))
-	    
-    return render_template('a.html',status='''<div class="row"><div class="span4 offset6"><div class="alert alert-success">Upload Success!!!</div></div></div>''')
+    exist_list=[]
+    for f in flist.getlist('file1'):
+        file_name=f.filename.encode('utf-8')
+        if os.path.exists(UPLOAD_FOLDER+file_name):
+            exist_list.append(file_name)
+        f.save(UPLOAD_FOLDER+file_name)
+    return render_template('a.html',exist_list=exist_list)
 @app.route('/upload/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
