@@ -24,9 +24,9 @@ def upload_file():
     for f in flist.getlist('file1'):
         file_name=f.filename.encode('utf-8')
         if os.path.exists(UPLOAD_FOLDER+file_name):
-            exist_list.append(file_name)
+            exist_list.append(file_name.decode('utf-8'))
         f.save(UPLOAD_FOLDER+file_name)
-    return render_template('a.html',exist_list=exist_list)
+    return render_template('upload_return.html',exist_list=exist_list)
 @app.route('/upload/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],filename)

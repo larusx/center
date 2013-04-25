@@ -1,19 +1,18 @@
 {%extends "a.html" %}
 {%block status %}
 <div class="row">
-	<div class="span4 offset6">
-		<div class="alert alert-success">
-			{%if exist_list%}
-				<ul class="unstyled">
-				{%for file in exist_list}
-					<li>file</li>
-				{%endfor%}
-				</ul>
-			{%else%}
-			Upload Success!!!
-			{%endif%}
-
-		</div>
-	</div>
+<div class="span4 offset6">
+<div class="alert alert-success">
+	{%if exist_list%}
+	<ul class="unstyled">
+		{% for file in exist_list %}
+		<li>{{file}} exists!!</li>
+		{% endfor %}
+	</ul>
+	{%else%}
+	Upload Success!!!
+	{%endif%}
+</div>
+</div>
 </div>
 {%endblock %}
