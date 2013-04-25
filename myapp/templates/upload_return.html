@@ -5,8 +5,9 @@
 <div class="span3 offset5">
 <div class="alert alert-success">
     <ul class="unstyled">
+    <li>上传成功的文件</li>
     {% for file in success_list%}
-    <li>{{file}} success!!</li>
+    <li>{{file}}</li>
     {%endfor%}
     </ul>
 </div>
@@ -17,8 +18,9 @@
 <div class="span3 offset1">
 <div class="alert">
     <ul class="unstyled">
+    <li>文件名重复，请重命名</li>
     {% for file in exist_list %}
-    <li>{{file}} exists!!</li>
+    <li>{{file}}</li>
     {% endfor %}
     </ul>
 </div>
