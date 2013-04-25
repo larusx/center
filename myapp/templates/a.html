@@ -46,7 +46,7 @@ with (thisform)
 <div class="well span6 offset5">
 <form enctype="multipart/form-data" action="/upload" onsubmit="return validate_form(this)" method="POST">  
 上传文件:
-<input type="file" name="file1" >  
+<input type="file" multiple size="80" name="file1[]" >  
 <input type="submit" value="确定" class='btn b btn-primary btn-large' data-loading-text="uploding...">  
 </form>  
 </div>
