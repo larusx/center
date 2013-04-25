@@ -2,7 +2,7 @@
 {%block status %}
 <div class="row">
 {%if success_list%}
-<div class="span3 offset3">
+<div class="span3 offset5">
 <div class="alert alert-success">
     <ul class="unstyled">
     {% for file in success_list%}
@@ -10,11 +10,11 @@
     {%endfor%}
     </ul>
 </div>
-<div>
+</div>
 {%endif%}
 
 {%if exist_list%}
-<div class="span3 offset3">
+<div class="span3 offset1">
 <div class="alert">
     <ul class="unstyled">
     {% for file in exist_list %}
@@ -23,5 +23,6 @@
     </ul>
 </div>
 </div>
+{%endif%}
 </div>
 {%endblock %}
