@@ -12,7 +12,7 @@
 <script type="text/javascript">
 
 $(function() {
-  $('#search_submit').bind('click', function() {
+  $('#search').bind('keyup', function() {
     $.getJSON('/ajax_search', {
       a: $('#search').val()
     }, function(data){ 
@@ -50,15 +50,15 @@ with (thisform)
 </head>
 <body background="static/img/index_back.jpg">
 <a href="https://github.com/larusx/center.git"><img style="position: fixed; top: 0; right: 0; border: 0;"src="static/pic/joinus.png" alt="Join us on GitHub" /></a>
-    <h1 class="text-center">
-        <a href="/" style="color : black;font-size:55px;font-family:'Consolas','Menlo','Deja Vu Sans Mono';">Cloud Storage</a>
+    <h1 class="text-center" style="height:100px;padding-top:30px;padding-bottom:20px;">
+        <a href="/" style="color : black;font-size:70px;font-family:'Consolas','Menlo','Deja Vu Sans Mono';padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px">Cloud Storage</a>
     </h1>
 
 
     
  
-<div class="row">
-<div class="well span6 offset5">
+<div class="row-fluid">
+<div class="span6 offset4">
 <form enctype="multipart/form-data" action="/upload" onsubmit="return validate_form(this)" method="POST">  
 上传文件:
 <input type="file" multiple size="80" name="file1" >  
@@ -73,12 +73,9 @@ with (thisform)
 {%block status%}
 {%endblock%}
 </div>
-<center>
-<form class="form-search" action='/ajax_search' method='POST'>
-  <input type="text" class="input-medium search-query" id='search'>
-  <button type="submit" class="btn" id='search_submit'>Search</button>
-</form>
-</center>
+<div class="span5 offset6">
+  <input type="text" placeholder="search here..." id='search'>
+</div>
 
 {% with messages = get_flashed_messages() %}
   {% if messages %}
@@ -108,7 +105,7 @@ function func()
 }
 </script>
 <center>
-<div class="well span3 offset6">
+<div class="span3 offset6">
 <a href="http://posix.sinaapp.com/?p=246">建议，意见，留言板@larus</a>
 </div>
 </center>
