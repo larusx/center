@@ -43,12 +43,14 @@ def uploaded_file(filename):
 @app.route('/ajax_search')
 def ajax_search():
     return_list = []
-    search_content = request.args.get('a').encode('utf-8')
+    name = request.args.get('a')
+    #return jsonify(name=name)
+    search_content = name.encode('utf-8')    
     for root, dirs, files in os.walk(UPLOAD_FOLDER):
             for fn in files:
                 if re.search(search_content, fn, re.IGNORECASE):
                     return_list.append(fn.decode('utf-8'))
-    return jsonify(return_list)
+    return jsonify(zip(range(0,len(return_list)),return_list))
 
 
 @app.route('/search', methods=['POST', 'GET'])
