@@ -11,12 +11,11 @@ div#word{font-family:'Microsoft YaHei','Consolas';color:white;}
 <script src="static/js/bootstrap.min.js"></script>
 <script type="text/javascript">
   $(function() {
-    $('a#calculate').bind('click', function() {
-      $.getJSON('/add_numbers', {
+    $('input#search').bind('change', function() {
+      $.getJSON('/ajax_search', {
         a: $('input[name="a"]').val(),
-        b: $('input[name="b"]').val()
       }, function(data) {
-        $("#result").text(data.result);
+        $("#result").text(data.return_list);
       });
       return false;
     });
@@ -47,9 +46,15 @@ div#word{font-family:'Microsoft YaHei','Consolas';color:white;}
 </div>
 </div>
 <h1>Ajax Example</h1>
-<p><input type=text size=5 name=a> +
-   <input type=text size=5 name=b> =
-   <span id="result">?</span>
-<p><a href=# id="calculate">calculate server side</a>
+<p><input type=text size=5 name=a id="search"></p>
+<span id="result">?</span>
+<!--<table class="table table-bordered table-hover" id='result'>
+<tbody>
+{%endif%}
+{%for value in return_list%}
+<tr><td><a href="http://larusx.jupiter.cloudlut.net/upload/{{value}}" style="color:black;font-family:'Microsoft YaHei';'Consolas';font-size:18px;">{{value}}</a></td></tr>
+{%endfor%}
+</tbody>
+</table>-->
 </body>
 </html>

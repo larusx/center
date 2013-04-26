@@ -40,11 +40,15 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
-@app.route('/add_numbers')
-def add_numbers():
-    a = request.args.get('a', 0, type=int)
-    b = request.args.get('b', 0, type=int)
-    return jsonify(result=a + b)
+@app.route('/ajax_search')
+def ajax_search():
+    return_list = []
+    search_content = request.args.get('a').encode('utf-8')
+    for root, dirs, files in os.walk(UPLOAD_FOLDER):
+            for fn in files:
+                if re.search(search_content, fn, re.IGNORECASE):
+                    return_list.append(fn.decode('utf-8'))
+    return jsonify(return_list)
 
 
 @app.route('/search', methods=['POST', 'GET'])
