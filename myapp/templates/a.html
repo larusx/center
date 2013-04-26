@@ -11,6 +11,22 @@
 <script src="static/js/jquery.fileupload.js"></script>
 <script type="text/javascript">
 
+$(function() {
+  $('#search_submit').bind('click', function() {
+    $.getJSON('/ajax_search', {
+      a: $('#search').val()
+    }, function(data){ 
+    var tb="<table class='table table-bordered table-hover'>";
+    $.each(data,function(k,v){
+      tb += "<tr><td>"+"<a href='http://larusx.jupiter.cloudlut.net/upload/+v+'" + "style='color:black;font-family:'Microsoft YaHei';'Consolas';font-size:18px;'>"+v+"</a>"+"</td></tr>";
+    });
+    tb += "</table>"
+    $('#result').html(tb);            
+    });
+    return false;
+  });
+});
+
 function validate_required(field,alerttxt)
 {
 with (field)
@@ -58,9 +74,9 @@ with (thisform)
 {%endblock%}
 </div>
 <center>
-<form class="form-search" action='/search' method='POST'>
-  <input type="text" class="input-medium search-query" name="search_content">
-  <button type="submit" class="btn">Search</button>
+<form class="form-search" action='/ajax_search' method='POST'>
+  <input type="text" class="input-medium search-query" id='search'>
+  <button type="submit" class="btn" id='search_submit'>Search</button>
 </form>
 </center>
 
@@ -75,16 +91,9 @@ with (thisform)
 {% endwith %}
 <!--<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>-->
 
-{%if return_list%}
-<div class='container'>
-<table class="table table-bordered table-hover" id='occur'>
-<tbody>
-{%endif%}
-{%for value in return_list%}
-<tr><td><a href="http://larusx.jupiter.cloudlut.net/upload/{{value}}" style="color:black;font-family:'Microsoft YaHei';'Consolas';font-size:18px;">{{value}}</a></td></tr>
-{%endfor%}
-</tbody>
-</table>
+
+<div class='container' id='result'>
+
 </div>
 <script>
 function func()
