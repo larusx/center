@@ -11,13 +11,13 @@ div#word{font-family:'Microsoft YaHei','Consolas';color:white;}
 <script src="static/js/bootstrap.min.js"></script>
 <script type="text/javascript">
   $(function() {
-    $('#search').bind('change', function() {
+    $('#search_submit').bind('click', function() {
       $.getJSON('/ajax_search', {
         a: $('#search').val()
       }, function(data){ 
 	var tb;
 	$.each(data,function(k,v){
-	var tb+="<tr><td>"+v+"</td></tr>";
+	tb += "<tr><td>"+v+"</td></tr>";
 	});
 	$('#result').html(tb);            
       });
@@ -51,6 +51,7 @@ div#word{font-family:'Microsoft YaHei','Consolas';color:white;}
 </div>
 <h1>Ajax Example</h1>
 <p><input type=text size=5 name='a' id="search"></p>
+<button class="btn" type="button" id='search_submit'>search</button>
 <div>
 <table id="result">
 </table>
