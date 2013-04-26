@@ -2,6 +2,7 @@ import os
 import re
 from flask import Flask, render_template, request, send_from_directory, redirect, url_for, flash, jsonify
 from werkzeug import secure_filename
+from urllib import unquote
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 UPLOAD_FOLDER = '/usr/upload/'
@@ -45,7 +46,7 @@ def ajax_search():
     return_list = []
     name = request.args.get('a')
     #return jsonify(name=name)
-    search_content = name.encode('utf-8')    
+    search_content = unquote(name).encode('utf-8')    
     for root, dirs, files in os.walk(UPLOAD_FOLDER):
             for fn in files:
                 if re.search(search_content, fn, re.IGNORECASE):

@@ -18,7 +18,7 @@ $(function() {
     }, function(data){ 
     var tb="<table class='table table-bordered table-hover'>";
     $.each(data,function(k,v){
-      tb += "<tr><td>"+"<a href='http://larusx.jupiter.cloudlut.net/upload/+v+'" + "style='color:black;font-family:'Microsoft YaHei';'Consolas';font-size:18px;'>"+v+"</a>"+"</td></tr>";
+      tb += "<tr><td>"+"<a href='http://larusx.jupiter.cloudlut.net/upload/"+v+"'" + "style='color:black;font-family:'Microsoft YaHei';'Consolas';font-size:18px;'>"+v+"</a>"+"</td></tr>";
     });
     tb += "</table>"
     $('#result').html(tb);            
