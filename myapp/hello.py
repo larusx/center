@@ -46,10 +46,10 @@ def ajax_search():
     return_list = []
     name = request.args.get('a')
     #return jsonify(name=name)
-    search_content = unquote(name).encode('utf-8').strip()    
+    search_content = unquote(name).encode('utf-8').strip().lower()    
     for root, dirs, files in os.walk(UPLOAD_FOLDER):
             for fn in files:
-                if re.search(search_content, fn, re.IGNORECASE):
+                if fn.lower().find(search_content) != -1:
                     return_list.append(fn.decode('utf-8'))
     return jsonify(zip(range(0,len(return_list)),return_list))
 
