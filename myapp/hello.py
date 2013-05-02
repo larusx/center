@@ -39,7 +39,7 @@ def if_file_exist():
     return_list=[]
     name=request.args.get()
 
-    return name
+    return jsonify(name)
 
 @app.route('/upload/<filename>')
 def uploaded_file(filename):

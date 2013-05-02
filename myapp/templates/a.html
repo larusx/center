@@ -43,20 +43,12 @@ with (thisform)
   {
   if (validate_required(file1,"请选择文件")==false)
     {file1.focus();return false}
-  var files_upload[];
-  for(i=0;i<$('#f1.get(0).files.length');i++)
-  {
-    files_upload.push({i:$('#f1.get(0).files[i].name')})
-  }
-  $.getJSON('/if_file_exsit',files_upload,function(data){
-    alert("helo");
-  })
   }
 }
 </script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
-<body background="static/img/index_back.jpg">
+<body style="background-image:url(static/img/index_back.jpg);background-attachment:fixed;">
 <a href="https://github.com/larusx/center.git"><img style="position: fixed; top: 0; right: 0; border: 0;"src="static/pic/joinus.png" alt="Join us on GitHub" /></a>
     <h1 class="text-center" style="height:100px;padding-top:30px;padding-bottom:20px;">
         <a href="/" style="color : black;font-size:70px;font-family:'Consolas','Menlo','Deja Vu Sans Mono';padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px">Cloud Storage</a>
