@@ -43,6 +43,14 @@ with (thisform)
   {
   if (validate_required(file1,"请选择文件")==false)
     {file1.focus();return false}
+  var files_upload[];
+  for(i=0;i<$('#f1.get(0).files.length');i++)
+  {
+    files_upload.push({i:$('#f1.get(0).files[i].name')})
+  }
+  $.getJSON('/if_file_exsit',files_upload,function(data){
+    alert("helo");
+  })
   }
 }
 </script>
@@ -61,7 +69,7 @@ with (thisform)
 <div class="span6 offset4">
 <form enctype="multipart/form-data" action="/upload" onsubmit="return validate_form(this)" method="POST">  
 上传文件:
-<input type="file" multiple size="80" name="file1" >  
+<input type="file" multiple size="80" name="file1" id='f1'>  
 <input type="submit" value="确定" class='btn b btn-primary btn-large' data-loading-text="uploding...">  
 </form>  
 </div>

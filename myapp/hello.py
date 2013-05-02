@@ -34,7 +34,12 @@ def upload_file():
         f.save(UPLOAD_FOLDER+file_name)
         success_list.append(file_name.decode('utf-8'))
     return render_template('upload_return.html', exist_list=exist_list, success_list=success_list)
+@app.route('/if_file_exist')
+def if_file_exist():
+    return_list=[]
+    name=request.args.get()
 
+    return name
 
 @app.route('/upload/<filename>')
 def uploaded_file(filename):
