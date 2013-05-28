@@ -34,6 +34,7 @@ def upload_file():
         f.save(UPLOAD_FOLDER+file_name)
         success_list.append(file_name.decode('utf-8'))
     return render_template('upload_return.html', exist_list=exist_list, success_list=success_list)
+
 @app.route('/if_file_exist')
 def if_file_exist():
     return_list=[]
@@ -43,7 +44,7 @@ def if_file_exist():
 
 @app.route('/upload/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename.encode('utf-8'))
 
 
 @app.route('/ajax_search')
